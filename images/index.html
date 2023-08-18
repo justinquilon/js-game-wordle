@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="quit-container" id="quit">
+            <div class="quit-header">
+                <div class="quit-title">Quit</div>
+                <button data-quit-close-button class="close-quit">&times;</button>
+            </div>
+            <div class="quit-body">
+                <h2>Are you sure?</h2>
+                <button class="yes-no yes-button">Yes</button>
+                <button class="yes-no no-button">No</button>
+            </div>
+        </div>
+        <div class="instructions" id="instructions">
+            <div class="instructions-header">
+                <div class="title">Instructions</div>
+                <button data-close-button class="close-info">&times;</button>
+            </div>
+            <div class="instructions-body">
+                <h2>How to Play</h2>
+                <h3>Guess the Wordle in 6 tries.</h3>
+                <ul>
+                    <li>Each guess must be a valid 5-letter word.</li>
+                    <li>The color of the tiles will change to show how close your guess was to the word.</li>
+                </ul>
+                <p><strong>Examples</strong></p>
+                <div class="example-container">
+                    <div class="example-weary-tile-w tile correct">W</div>
+                    <div class="example-weary-tile tile">E</div>
+                    <div class="example-weary-tile-a tile included">A</div>
+                    <div class="example-weary-tile tile">R</div>
+                    <div class="example-weary-tile-y tile not-included">Y</div>
+                </div>
+                <p><strong>W</strong> is in the word and in the correct spot.</p>
+                <p><strong>A</strong> is in the word but in the wrong spot.</p>
+                <p><strong>Y</strong> is not in the word at any spot.</p>
+                <p>public website: <a href="https://justinquilon.github.io/js-game-wordle/">wordle clone by justin</a></p>
+            </div>
+        </div>
+        <div class="game">
+            <div class="game-header">
+                <h1 class="game-name">WORDLE</h1>
+                <hr>
+            </div>
+            <div class="guess-container" id="guess-container"> </div>
+            <div class="answer"><h3 id="answer"></h3></div>
+            <div class="game-options">
+                <button data-instructions-target="#instructions"><img class="images info" src="images/info.png" alt="instructions"></button>
+                <button data-instructions-target="#reset"><img class="images reset" src="images/reset.png" alt="reset"></button>
+                <button data-quit-target="#quit"><img class="images quit" src="images/x-mark.png" alt="quit"></button>
+            </div>
+            <hr>
+            <div class="keyboard">
+                <button id="KeyQ" class="key" data-key="Q">Q</button>
+                <button id="KeyW" class="key" data-key="W">W</button>
+                <button id="KeyE"class="key" data-key="E">E</button>
+                <button id="KeyR"class="key" data-key="R">R</button>
+                <button id="KeyT" class="key" data-key="T">T</button>
+                <button id="KeyY"class="key" data-key="Y">Y</button>
+                <button id="KeyU" class="key" data-key="U">U</button>
+                <button id="KeyI" class="key" data-key="I">I</button>
+                <button id="KeyO" class="key" data-key="O">O</button>
+                <button id="KeyP" class="key" data-key="P">P</button>
+                <button id="KeyA" class="key" data-key="A">A</button>
+                <button id="KeyS" class="key" data-key="S">S</button>
+                <button id="KeyD" class="key" data-key="D">D</button>
+                <button id="KeyF" class="key" data-key="F">F</button>
+                <button id="KeyG" class="key" data-key="G">G</button>
+                <button id="KeyH" class="key" data-key="H">H</button>
+                <button id="KeyJ" class="key" data-key="J">J</button>
+                <button id="KeyK" class="key" data-key="K">K</button>
+                <button id="KeyL" class="key" data-key="L">L</button>
+                <button id="KeySpace" class="key" data-key="Space"></button>
+                <button id="Enter" class="key-enter" data-enter>Enter</button>
+                <button id="KeyZ" class="key" data-key="Z">Z</button>
+                <button id="KeyX" class="key" data-key="X">X</button>
+                <button id="KeyC" class="key" data-key="C">C</button>
+                <button id="KeyV" class="key" data-key="V">V</button>
+                <button id="KeyB" class="key" data-key="B">B</button>
+                <button id="KeyN" class="key" data-key="N">N</button>
+                <button id="KeyM" class="key" data-key="M">M</button>
+                <button id="Backspace" class="key" data-delete>⌫</button>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+</body>
+</html>

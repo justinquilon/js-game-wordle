@@ -1,0 +1,315 @@
+* {
+    box-sizing: border-box;
+}
+ button {
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+ }
+
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+ }
+
+.info,
+.reset,
+.quit, 
+.close-info {  
+height: 30px;
+}
+
+.instructions {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.instructions.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.instructions-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.instructions-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.instructions-header .close-info {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.instructions-body {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+#guess-container {
+    width: 21.875em;
+    height: 26.25em;
+    margin: 0 auto;
+    margin-top: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.tile {
+    /* box */
+    border: 0.05em solid lightgrey;
+    width: 1.75em;
+    height: 1.75em;
+    margin: 2.5px;
+
+    /* text */
+    color: black;
+    font-size: 2.25em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* animation */
+    transition: transform 250ms linear;
+}
+
+.not-included {
+    background-color: #787C7E;
+    color: white;
+    border-color:white;
+}
+
+
+.included {
+    background-color: #C9B458;
+    color: white;
+    border-color: white;
+}
+
+.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: white;
+}
+
+.game-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.yes-no {
+    border: 1px solid black;
+    border-radius: 25%;
+}
+
+.quit-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.quit-container.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.quit-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.quit-header .quit-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.quit-header .close-quit {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.quit-body {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.keyboard {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.key {
+    font-size: inherit;
+    width: 36px;
+    height: 40px;
+    margin: 1px;
+    border: 1px solid lightgray;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+}
+
+.key-enter {
+    width: 76px;
+    height: 40px;
+    margin: 1px;
+    border: 1px solid lightgray;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+}
+
+.key.not-included {
+    background-color: #787C7E;
+    color: white;
+    border-color:white;
+}
+
+
+.key.included {
+    background-color: #C9B458;
+    color: white;
+    border-color: white;
+}
+
+.key.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: white;
+}
+
+/* Flip Animation */
+.tile.flip {
+    transform: rotateX(90deg);
+}
+
+.tile.dance {
+    animation: dance 500ms ease-in-out;
+}
+
+.tile.shake {
+    animation: shake 250ms ease-in-out;
+  }
+
+@keyframes dance {
+    20% {
+      transform: translateY(-60%);
+    }  
+  
+    40% {
+      transform: translateY(5%);
+    }  
+  
+    60% {
+      transform: translateY(-25%);
+    }  
+  
+    80% {
+      transform: translateY(2.5%);
+    }  
+  
+    90% {
+      transform: translateY(-10%);
+    }  
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shake {
+    10% {
+      transform: translateX(-5%);
+    }
+  
+    30% {
+      transform: translateX(5%);
+    }
+  
+    50% {
+      transform: translateX(-7.5%);
+    }
+  
+    70% {
+      transform: translateX(7.5%);
+    }
+  
+    90% {
+      transform: translateX(-5%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
