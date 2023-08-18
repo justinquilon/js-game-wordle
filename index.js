@@ -69,6 +69,7 @@ function openPopUp(popUpElement) {
     if (popUpElement == null) return;
     popUpElement.classList.add('active');
     overlay.classList.add('active');
+    animateInstructions();
 }
 
 function closePopUp(popUpElement) {
@@ -81,10 +82,30 @@ function quitGame() {
     answer.innerHTML = "Quit Game.<br>To start a new game press the RESET button";
     return gameOver = true;
 }
-// Add listeners to reset button
+// Add listener to reset button
 reset.addEventListener('click', () => {
     resetGame();
 })
+
+function animateInstructions(){
+    let correctTile = document.querySelector(".example-weary-tile-w");
+    let includedTile = document.querySelector(".example-weary-tile-a");
+    let notIncludedTile = document.querySelector(".example-weary-tile-y");
+    
+    handleAnimation(correctTile, "flip");
+    handleAnimation(includedTile, "flip");
+    handleAnimation(notIncludedTile, "flip");
+}
+
+function handleAnimation(element, animation){ 
+    element.classList.add(animation); 
+
+    element.addEventListener("transitionend", () => {
+        element.classList.remove(animation);
+    },
+    {once: true }
+    )
+}
 
 function startGame() {
     //set the board
